@@ -143,6 +143,42 @@ Agora que você tem o prompt inicial, é hora de refatorá-lo usando as técnica
 
 ---
 
+## Técnicas Aplicadas (Fase 2)
+
+O prompt foi otimizado e salvo em `prompts/bug_to_user_story_v2.yml`. As técnicas foram escolhidas para orientar a transformação de relatos de bugs em User Stories consistentes, claras e fiéis às informações fornecidas.
+
+### Few-shot Learning
+
+Utilizei três exemplos de entrada e saída para demonstrar o comportamento esperado: dois relatos de bugs com informações suficientes (login e cadastro) e um relato insuficiente sobre a tela de pedidos. Os exemplos mostram tanto o padrão de uma User Story quanto a maneira de solicitar informações quando não é possível produzi-la.
+
+Escolhi essa técnica para orientar o modelo por demonstrações concretas, favorecendo respostas mais organizadas e consistentes com o formato solicitado. Os exemplos funcionam como orientação no contexto do prompt, sem retreinar o modelo nem garantir que todas as respostas seguirão o padrão.
+
+### Role Prompting
+
+Defini o papel de **Engenheiro de Software Sênior especializado em análise de requisitos e refinamento de User Stories** na seção `PAPEL`.
+
+Escolhi essa técnica para direcionar a perspectiva e a linguagem da resposta à análise de requisitos. Em conjunto com o objetivo e as regras, esse papel delimita o foco na necessidade do usuário e no comportamento esperado do sistema, evitando propostas de implementação técnica fora do escopo.
+
+### Estrutura da resposta e Skeleton of Thought
+
+A seção `FORMATO DA RESPOSTA` define um modelo fixo com **Título**, **User Story** no padrão “Como…, quero…, para…” e **Critérios de Aceite** verificáveis. Escolhi essa estrutura para organizar a apresentação, reduzir omissões e facilitar a leitura e a revisão pela equipe de desenvolvimento.
+
+Essa escolha corresponde à definição simplificada de **Skeleton of Thought** apresentada no enunciado: estruturar a resposta em etapas claras. Tecnicamente, o prompt utiliza um **template de saída**. 
+
+### Análise em etapas e práticas complementares
+
+A seção `PROCESSO DE ANÁLISE` também orienta o modelo a identificar o problema, quem é afetado, o comportamento esperado e a suficiência das informações antes de responder. Essa orientação se aproxima de **Chain of Thought (CoT)** por solicitar uma análise passo a passo, embora o prompt peça para não apresentar essas etapas na resposta final. Seu objetivo é orientar a análise antes da elaboração da User Story; isso é diferente de definir o formato de apresentação da resposta.
+
+Além dessas técnicas, apliquei as seguintes práticas:
+
+- **Regras explícitas:** proibir a invenção de requisitos, causas e detalhes técnicos, buscando manter a resposta fiel ao relato.
+- **Tratamento de casos especiais (edge cases):** orientar respostas para relatos insuficientes, múltiplos bugs independentes e solicitações de melhorias ou novas funcionalidades.
+- **Separação entre System e User Prompt:** concentrar as instruções no `system_prompt` e inserir o relato variável no `user_prompt`, delimitado por `---`, para distinguir as orientações do conteúdo a analisar.
+
+Assim, **Few-shot Learning e Role Prompting são as duas técnicas inequivocamente presentes e já atendem à combinação mínima exigida na Fase 2**. Skeleton of Thought se aplica no sentido simplificado do enunciado, com a ressalva acima; a análise em etapas acrescenta uma orientação próxima de CoT. Os benefícios esperados ainda precisam ser confirmados pela avaliação das métricas.
+
+---
+
 ### 3. Push e Avaliação
 
 Após refatorar os prompts, você deve enviá-los de volta ao LangSmith Prompt Hub.
