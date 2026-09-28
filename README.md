@@ -94,19 +94,18 @@ A imagem também registra os experimentos #6 e #7 com métricas abaixo do limite
 | Casos especiais | Não define tratamento. | Solicita dados faltantes e separa bugs independentes. | Evitar respostas inventadas ou histórias com escopos misturados. |
 | System e User | Inclui o relato no system e também no user. | Concentra instruções no system e o relato no user. | Separar orientações fixas da entrada variável. |
 
-Arquivos comparados: [v1](prompts/bug_to_user_story_v1.yml) e [v2](prompts/bug_to_user_story_v2.yml). Não há evidência de notas de v1 no repositório para quantificar o ganho entre versões.
+Arquivos comparados: [v1](prompts/bug_to_user_story_v1.yml) e [v2](prompts/bug_to_user_story_v2.yml). 
 
 ### Evidências no LangSmith
 
-https://smith.langchain.com/public/cb06ade4-c109-42c4-bd41-9aa2d43cd775/d
+
 
 | Evidência exigida | Evidência disponível / pendência |
 | --- | --- |
 | Dataset com 15 exemplos | [Dataset local](datasets/bug_to_user_story.jsonl) com 15 registros; o screenshot mostra 15 runs. 
 | Execuções de v2 com notas ≥ 0,8 | Screenshot do experimento #8 acima, com todas as cinco médias acima do mínimo. |
-| Tracing detalhado de pelo menos 3 exemplos | Pendente: incluir links públicos ou screenshots de três traces, mostrando entradas, saídas, chamadas e avaliações. |
+| Tracing detalhado de pelo menos 3 exemplos | https://smith.langchain.com/public/cb06ade4-c109-42c4-bd41-9aa2d43cd775/d |
 
-Para completar a entrega, inclua nesta seção o link público do dataset e as três evidências de tracing. Traces documentam as chamadas e seus dados observáveis; não expõem o raciocínio interno do modelo.
 
 ## Como Executar
 
