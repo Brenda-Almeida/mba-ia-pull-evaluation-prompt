@@ -192,4 +192,7 @@ bug_to_user_story_v2:
     ---
 
   version: "v2"
+  techniques_applied:
+    - "Few-shot Learning"
+    - "Role Prompting"
 
