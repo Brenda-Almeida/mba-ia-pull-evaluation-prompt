@@ -76,7 +76,7 @@ O screenshot disponível registra o experimento **#8**, criado em **23/09/2026 �
 | Clarity | 0,89 | Atingido |
 | Precision | 0,87 | Atingido |
 
-A média das cinco notas arredondadas acima é **0,872**. Esse valor é uma aproximação calculada a partir do screenshot; a média com precisão completa deve ser consultada no experimento. As médias não demonstram que cada exemplo individual recebeu nota ≥ 0,8.
+A média das cinco notas arredondadas acima é **0,872**. As médias não demonstram que cada exemplo individual recebeu nota ≥ 0,8.
 
 ![Experimentos no LangSmith: experimento 8 com 15 execuções e médias de Clarity 0,89, F1-Score 0,86, Helpfulness 0,88, Precision 0,87 e Correctness 0,86](image.png)
 
