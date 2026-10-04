@@ -2,7 +2,7 @@ import os
 import sys
 
 from dotenv import load_dotenv
-from langchain import hub
+from langsmith import Client
 from langchain_core.prompts import ChatPromptTemplate
 
 from utils import load_yaml, check_env_vars, print_section_header
@@ -27,12 +27,16 @@ def push_prompt_to_langsmith(prompt_name: str, prompt_data: dict) -> bool:
             "Prompt para converter relatos de bugs em User Stories"
         )
 
-        url = hub.push(
+        client = Client(
+            api_key=os.getenv("LANGSMITH_API_KEY"),
+            api_url=os.getenv("LANGSMITH_ENDPOINT"),
+        )
+        url = client.push_prompt(
             prompt_name,
-            prompt,
-            new_repo_is_public=True,
+            object=prompt,
+            is_public=True,
             tags=tags,
-            new_repo_description=description,
+            description=description,
         )
         print(f"Prompt '{prompt_name}' publicado com sucesso! URL: {url}")
 

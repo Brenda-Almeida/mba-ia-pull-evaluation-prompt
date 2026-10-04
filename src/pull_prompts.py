@@ -2,7 +2,7 @@ import os
 import sys
 from pathlib import Path
 from dotenv import load_dotenv
-from langchain import hub
+from langsmith import Client
 from utils import save_yaml, check_env_vars, print_section_header
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -11,11 +11,14 @@ PROMPT_ID = "leonanluppi/bug_to_user_story_v1"
 load_dotenv()
 
 def pull_prompts_from_langsmith():
-    return hub.pull(
-        PROMPT_ID,   
+    client = Client(
         api_key=os.getenv("LANGSMITH_API_KEY"),
         api_url=os.getenv("LANGSMITH_ENDPOINT"),
-        )
+    )
+    return client.pull_prompt(
+        PROMPT_ID,
+        dangerously_pull_public_prompt=True,
+    )
 
 def serialize_prompt(prompt):
     messages = []
