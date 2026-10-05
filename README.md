@@ -66,21 +66,21 @@ Few-shot Learning e Role Prompting atendem à combinação de duas técnicas exi
 
 ### Avaliação do prompt v2
 
-O screenshot disponível registra o experimento **#8**, criado em **23/09/2026 às 19:38:56**, com **15 runs** e uma repetição por exemplo. As cinco médias exibidas atendem ao mínimo de 0,8.
+O screenshot mais recente registra o experimento **#3**, com **15/15 runs** e uma repetição por exemplo. Ele é a última execução exibida e atende ao critério de aprovação em todas as cinco métricas.
 
 | Métrica | Média exibida no LangSmith | Critério |
 | --- | ---: | --- |
 | Helpfulness | 0,88 | Atingido |
-| Correctness | 0,86 | Atingido |
-| F1-Score | 0,86 | Atingido |
-| Clarity | 0,89 | Atingido |
+| Correctness | 0,87 | Atingido |
+| F1-Score | 0,87 | Atingido |
+| Clarity | 0,88 | Atingido |
 | Precision | 0,87 | Atingido |
 
-A média das cinco notas arredondadas acima é **0,872**. As médias não demonstram que cada exemplo individual recebeu nota ≥ 0,8.
+A média das cinco notas exibidas, arredondadas a duas casas pelo LangSmith, é **0,874**. As médias não demonstram que cada exemplo individual recebeu nota ≥ 0,8.
 
-![Experimentos no LangSmith: experimento 8 com 15 execuções e médias de Clarity 0,89, F1-Score 0,86, Helpfulness 0,88, Precision 0,87 e Correctness 0,86](image.png)
+![Experimentos no LangSmith: experimento #3 aprovado, com 15 de 15 runs e médias de Clarity 0,88, Correctness 0,87, F1-Score 0,87, Helpfulness 0,88 e Precision 0,87](image-1.png)
 
-A imagem também registra os experimentos #6 e #7 com métricas abaixo do limite. Elas são baseado nas primeiras otimizações que foram evoluindo para poder estar acima da média de 0,8.
+A imagem também registra os experimentos anteriores **#1** e **#2**, que ainda tinham métricas abaixo do limite. O experimento **#3** é a iteração aprovada, com todas as médias acima de 0,8.
 
 ### Comparação entre v1 e v2: o que mudou e por quê
 
@@ -103,8 +103,8 @@ Arquivos comparados: [v1](prompts/bug_to_user_story_v1.yml) e [v2](prompts/bug_t
 | Evidência exigida | Evidência disponível / pendência |
 | --- | --- |
 | Dataset com 15 exemplos | [Dataset local](datasets/bug_to_user_story.jsonl) com 15 registros; o screenshot mostra 15 runs. 
-| Execuções de v2 com notas ≥ 0,8 | Screenshot do experimento #8 acima, com todas as cinco médias acima do mínimo. |
-| Tracing detalhado de pelo menos 3 exemplos | https://smith.langchain.com/public/cb06ade4-c109-42c4-bd41-9aa2d43cd775/d |
+| Execuções de v2 com notas ≥ 0,8 | Screenshot do experimento #3 acima, com 15/15 runs e todas as cinco médias acima do mínimo. |
+| Tracing detalhado de pelo menos 3 exemplos | https://smith.langchain.com/public/99ee9234-7072-4def-91a9-cad403a1027b/d |
 
 
 ## Como Executar
